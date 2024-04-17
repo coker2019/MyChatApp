@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import MessageList from "./components/MessageList"; // Corrected import path
+import SendMessageForm from "./components/SendMessageForm"; // Corrected import path
+import NewRoomForm from "./components/NewRoomForm"; // Corrected import path
+import RoomList from "./components/RoomList"; // Corrected import path
+import './App.css';
+
+const DUMMY_DATA = [
+  {
+    senderId: 'perbogen',
+    text: 'how are u doing?'
+  },
+  {
+    senderId: 'perbela',
+    text: 'how are u eating?'
+  }
+];
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app">
+  
+         <h1>Welcome to My Chat App</h1>
+      <MessageList messages={DUMMY_DATA} />
+      <SendMessageForm />
+      <NewRoomForm />
+      <RoomList />
+    </div>
+  );
 }
 
-export default App
+export default App;
